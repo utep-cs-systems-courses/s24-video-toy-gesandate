@@ -200,19 +200,21 @@ void wdt_c_handler()
   secCount ++;
   if (secCount >= 10) {		/* 10/sec */
 
-    {				/* update hourglass */
-      if (switches & SW3) song3();
-      if (switches & SW2) song2();
-      if (switches & SW1) song1();
-      if (step <= 50)
-	step ++;
-      else
-	step = 0;
-      secCount = 0;
+    if (switches & SW1){
+      song1();
+    }else if (switches & SW2){
+      song2();
+    }else if (switches & SW3){
+      song3();
+    }else if (switches & SW4){
+      song4();
     }
-    if (switches & SW4) return;
-    redrawScreen = 1;
-  }
+     if (step <= 50)
+    	step ++;
+    else
+     	step = 0;
+       secCount = 0; 
+     } 
 }
   
 void update_shape();
