@@ -233,7 +233,7 @@ void wdt_c_handler()
 
   //int song[] = {300, 1000, 200, 100};
   secCount ++;
-  if (secCount >= 10) {		/* 10/sec */
+  if (secCount >= 25) {		/* 10/sec */
 
     if (switches & SW1){
       song1();
