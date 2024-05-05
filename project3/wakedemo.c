@@ -161,7 +161,7 @@ void pic4(){//agent p
   pic1();
   fillRectangle(60,55,85,10,COLOR_BROWN);
   fillRectangle(72,40,40,20,COLOR_BROWN);
-  //fillRectangle(72,40,40,20,COLOR_BLACK);
+  fillRectangle(72,52,40,5,COLOR_BLACK);
 }
 
 void song1(){//i wonder
