@@ -29,6 +29,9 @@
 #define Gm 392.00
 #define Eb 311.13
 
+#define T 200
+#define f 400
+
 char blue = 31, green = 0, red = 31;
 unsigned char step = 0;
 
@@ -85,14 +88,37 @@ void singsong(double *note, int *temp, int size){
 int cCol = screenHeight >> 1;
 int cRow = screenWidth >> 1;
 
-void pic1(){
-  clearScreen(COLOR_PURPLE);
-  for (int i = 0; i <= cRow; i++){
-    //fillRectangle(cCol - i, cRow - i,30,30,COLOR_LIGHT_BLUE);
-    for (int j = i-1; j <= i; j++){
-      fillRectangle(cCol + i, cRow - j,30,30,COLOR_LIGHT_BLUE);
-    }
-  }
+void pic1(){//perry the platypus
+  clearScreen(COLOR_FOREST_GREEN);
+
+  //tail
+  fillRectangle(0, 80, 50, 20, COLOR_DARK_ORANGE);
+
+  //body
+  fillRectangle(30, 60, 70, 40, COLOR_CYAN);
+
+  //beak
+  fillRectangle(85, 75, 10, 10, COLOR_ORANGE);
+  fillRectangle(75, 80, 40, 15, COLOR_ORANGE);
+
+  //eyes
+  fillRectangle(75, 66, 11, 11, COLOR_WHITE);
+  fillRectangle(95, 66, 11, 11, COLOR_WHITE);
+  fillRectangle(77, 68, 3, 3, COLOR_BLACK);
+  fillRectangle(99, 68, 3, 3, COLOR_BLACK);
+  
+  //legs
+  fillRectangle(30, 100, 7, 9, COLOR_CYAN);
+  fillRectangle(45, 100, 7, 9, COLOR_CYAN);
+  fillRectangle(80, 100, 7, 9, COLOR_CYAN);
+  fillRectangle(90, 100, 7, 9, COLOR_CYAN);
+
+  //feet
+  fillRectangle(30, 106, 11, 3, COLOR_ORANGE);
+  fillRectangle(45, 106, 11, 3, COLOR_ORANGE);
+  
+  
+  
   
 }
 
@@ -131,9 +157,9 @@ void pic3(){//creeper
   
 }
 
-void pic4(){
-  clearScreen(COLOR_PURPLE);
-  fillRectangle(90,90,50,50,COLOR_ORANGE);
+void pic4(){//agent p
+  pic3();
+  fillRectangle(90,90,50,50,COLOR_BROWN);
 }
 
 void song1(){//i wonder
@@ -168,7 +194,7 @@ void song3(){//cat
 
   pic3();
   double song[] = {659, 784, 880, 784, 659, 587, 523};
-  int time[] = {200, 200, 200, 200, 200, 200, 400};
+  int time[] = {T, T, T, T, T, T, F};
 
   int amount = sizeof(song) / sizeof(song[0]);
   int times = 3;
@@ -177,11 +203,18 @@ void song3(){//cat
   }
 }
 
-void song4(){
+void song4(){//minecraft
 
   pic4();
-  double song[] = {200,400,100,600};
-  int time[] = {500,200,700,100};
+  
+  double song[] = {392, 392, 294,392, 440, 440, 392};/*,
+		   330, 330, 294, 330,349, 349,330};
+		   394, 294,262,294, 330, 330, 294,
+		   392, 392, 294,392, 440, 440, 392};*/
+  int time[] = {T,T,T,T,T,T,f};/*,
+		T,T,T,T,T,T,f};,
+		T,T,T,T,T,T,f,
+		T,T,T,T,T,T,f};*/
 
   int amount = sizeof(song) / sizeof(song[0]);
   singsong(song, time, amount);
@@ -246,6 +279,7 @@ void main()
     P1OUT |= LED;	/* led on */
   }
 }    
+/*
 void
 update_shape()
 {
@@ -253,7 +287,7 @@ update_shape()
   //screen_update_hourglass();
 }
    
-
+*/
 
 void
 __interrupt_vec(PORT2_VECTOR) Port_2(){
