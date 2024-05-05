@@ -158,8 +158,10 @@ void pic3(){//creeper
 }
 
 void pic4(){//agent p
-  pic3();
-  fillRectangle(90,90,50,50,COLOR_BROWN);
+  pic1();
+  fillRectangle(60,55,85,10,COLOR_BROWN);
+  fillRectangle(72,40,40,20,COLOR_BROWN);
+  //fillRectangle(72,40,40,20,COLOR_BLACK);
 }
 
 void song1(){//i wonder
